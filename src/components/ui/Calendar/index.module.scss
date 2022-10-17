@@ -1,0 +1,51 @@
+@import "../../../styles/theme";
+$border-color: #E8E8E8;
+$background: #E8E8E8;
+
+.calendarContainer {
+  display: grid;
+  .yearMonthSelector {
+    @include font-large-bold;
+    color: $dark-gray-color;
+
+    display: grid;
+    grid-template-columns: min-content auto min-content;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 29px 0 24px 0;
+  }
+
+  .calendar {
+    display: grid;
+    outline: 1px solid $border-color;
+    border-radius: 8px;
+    overflow: hidden;
+    //gap: 1px 1px;
+    background-color: $border-color;
+    .weekDays {
+      @include font-base;
+      @include font-medium-bold;
+      color: $on-secondary-color;
+      background-color: $on-primary-color;
+      text-transform: uppercase;
+      &.row {
+        .cell {
+          background-color: $on-primary-color;
+          outline: 1px solid #E8E8E8;
+          padding: 18px 19px;
+        }
+      }
+
+    }
+    .row {
+      display: grid;
+      //gap: 1px 1px;
+      grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+      .cell {
+        background-color: $background;
+        padding: 4px;
+      }
+    }
+  }
+}

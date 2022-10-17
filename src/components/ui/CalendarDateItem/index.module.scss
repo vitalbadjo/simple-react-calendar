@@ -1,0 +1,50 @@
+@import "../../../styles/theme";
+
+.calendarDateItem {
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 12px;
+
+  max-width: 146px;
+  height: 141px;
+  left: 20px;
+  top: 20px;
+
+  background: #FFFFFF;
+  outline: 1px solid #E8E8E8;
+
+  .dateText {
+    @include font-base;
+    font-size: $font-size-18;
+    color: $on-secondary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    background-color: $on-primary-color;
+
+    &.disabled {
+      color: $light-gray-color;
+    };
+
+    &.holiday {
+      color: $green-color;
+    }
+
+    &.selected {
+      color: $on-primary-color;
+      background-color: #4CA6FE;
+      border-radius: 50%;
+    }
+  }
+
+  .eventsBlock {
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: 100%;
+  }
+}

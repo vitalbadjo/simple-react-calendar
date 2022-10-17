@@ -1,6 +1,15 @@
+@import "../../../styles/theme";
+
 .textInput {
-  padding: 7px;
-  &:focus {
-    border-color: #61dafb;
+  display: grid;
+  grid-template-rows: auto auto;
+  .inputField {
+    @include input-base;
+  }
+  .errorMessage {
+    @include font-small-bold;
+    @include input-padding;
+    color: $on-orange-color;
+    margin-top: -15px;
   }
 }

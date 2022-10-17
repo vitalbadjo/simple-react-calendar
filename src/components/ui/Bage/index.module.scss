@@ -1,0 +1,34 @@
+@import "../../../styles/theme";
+
+.badge {
+  @include font-base;
+  font-size: $font-size-12;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-small;
+
+  border-radius: $radius-s;
+  border: none;
+
+  padding: 3px 4px;
+  margin: 3px;
+
+  color: $on-orange-color;
+  background-color: $orange-color;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  cursor: pointer;
+  &:hover {
+    color: $on-orange-color-hover;
+    background-color: $orange-color-hover;
+    overflow: visible;
+    z-index: 1;
+    width: fit-content;
+  }
+  &.disabled {
+    color: $on-orange-color-disabled;
+    background-color: $orange-color-disabled;
+  }
+}

@@ -1,0 +1,221 @@
+// main colors
+$primary-color: #2B96F1;
+$on-primary-color: #FFFFFF;
+$green-color: #5CB85C;
+$light-gray-color: #AAAAAA;
+$dark-gray-color: #191919;
+
+$primary-color-hover: #138AEF;
+$on-primary-color-hover: $on-primary-color;
+
+$primary-color-active: #0F85E9;
+$on-primary-color-active: $on-primary-color;
+
+$secondary-color: rgba(255,255,255,0);
+$on-secondary-color: #828282;
+
+$secondary-color-hover: #FAFAFA;
+$on-secondary-color-hover: $on-secondary-color;
+
+$secondary-color-active: #F5F5F5;
+$on-secondary-color-active: $on-secondary-color;
+
+$orange-color: rgba(242, 107, 81, 0.12);
+$on-orange-color: #FF7733;
+
+$orange-color-hover: #F26B51;
+$on-orange-color-hover: #FFFFFF;
+
+$orange-color-disabled: $orange-color;
+$on-orange-color-disabled: $on-orange-color;
+
+// input colors
+$placeholder-color: $light-gray-color;
+
+$input-border-color-base: rgba(0, 0, 0, 0.1);
+$input-border-base: 1px solid $input-border-color-base;
+$input-color-base: #FAFAFA;
+$on-input-color-base: $dark-gray-color;
+
+$input-border-color-hover: #7FBFFE;
+$input-border-hover: 1px solid $input-border-color-hover;
+
+$input-border-color-active: #198CFF;
+$input-border-active: 1px solid $input-border-color-active;
+$input-color-active: #FFFFFF;
+$on-input-color-active: $dark-gray-color;
+
+
+
+// fonts
+$font-family: 'Helvetica Neue';
+
+$font-size-12: 12px;
+$font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+$font-size-24: 24px;
+
+$line-height-small: 18px;
+$line-height-medium: 21px;
+$line-height-large: 28px;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+
+@mixin font-base {
+  font-family: $font-family;
+  font-style: normal;
+}
+
+@mixin font-small-regular {
+  @include font-base;
+
+  font-weight: $font-weight-regular;
+  font-size: $font-size-14;
+  line-height: $line-height-medium;
+}
+
+@mixin font-small-bold {
+  @include font-base;
+
+  font-weight: $font-weight-medium;
+  font-size: $font-size-14;
+  line-height: $line-height-small;
+}
+
+@mixin font-medium-bold {
+  @include font-base;
+
+  font-weight: $font-weight-medium;
+  font-size: $font-size-18;
+  line-height: $line-height-medium;
+}
+
+@mixin font-large-bold {
+  @include font-base;
+
+  font-weight: $font-weight-medium;
+  font-size: $font-size-24;
+  line-height: $line-height-large;
+}
+
+// geometry
+$radius-s: 4px;
+$radius-m: 6px;
+$radius-l: 8px;
+
+$primary-height: 36px;
+$button-height: $primary-height;
+$input-height: $primary-height;
+
+@mixin button-padding {
+  padding: 9px 18px;
+}
+
+@mixin input-padding {
+  padding: 8px 10px;
+}
+
+@mixin input-margin {
+  margin-bottom: 15px;
+}
+
+@mixin badge-disabled {
+  opacity: 0.7;
+}
+
+@mixin button-disabled {
+  opacity: 0.25
+};
+
+@mixin flex-content-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button-base() {
+  @include button-padding;
+  @include flex-content-centered;
+  @include font-small-bold;
+
+  border: none;
+  border-radius: $radius-m;
+  height: $button-height;
+  max-width: 270px;
+  width: 100%;
+
+  &.primary {
+    color: $on-primary-color;
+    background-color: $primary-color;
+    &:hover {
+      color: $on-primary-color-hover;
+      background-color: $primary-color-hover;
+    }
+    &:active {
+      color: $on-primary-color-active;
+      background-color: $primary-color-active;
+    }
+  }
+  &.secondary {
+    color: $on-secondary-color;
+    background-color: $secondary-color;
+    &:hover {
+      color: $on-secondary-color-hover;
+      background-color: $secondary-color-hover;
+    }
+    &:active {
+      color: $on-secondary-color-active;
+      background-color: $secondary-color-active;
+    }
+  }
+
+  &:hover { cursor: pointer; }
+
+  &:disabled {
+    @include button-disabled;
+    color: $primary-color;
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+@mixin input-base() {
+  @include flex-content-centered;
+  @include font-small-regular;
+  @include input-padding;
+  @include input-margin;
+
+  align-items: flex-start;
+  border: 1px solid $input-border-color-base;
+  border-radius: $radius-m;
+  color: $on-input-color-base;
+  background-color: $input-color-base;
+  height: $input-height;
+  max-width: 270px;
+
+  &:hover {
+    border: 1px solid $input-border-color-hover;
+  }
+  &:active {
+    border: 1px solid $input-border-color-active;
+    background-color: $input-color-active;
+  }
+
+  &::placeholder {
+    color: $placeholder-color;
+  }
+  &.disabled {
+    cursor: not-allowed;
+  }
+  &.disabled:active, &.disabled:hover {
+    border: 1px solid $input-border-color-base;
+    background-color: $input-color-base;
+  }
+  &.error {
+    color: $on-orange-color;
+    border: 1px solid $on-orange-color;
+  }
+}

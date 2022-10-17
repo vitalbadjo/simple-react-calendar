@@ -1,0 +1,10 @@
+$error-color: red;
+$field-padding: 7px;
+.iconButton {
+  cursor: pointer;
+  width: 24px;
+  fill: #828282;
+  .disabled {
+    color: gray;
+  };
+}
